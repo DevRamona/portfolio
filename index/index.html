@@ -1,13 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./src/output.css">
-</head>
-<body>
-    
-    
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="font-sans bg-gray-900 text-white max-w-screen-lg mx-auto">
+    <!-- Header -->
+    <header
+      class="relative flex flex-col items-center mb-6 justify-center h-screen bg-cover bg-center"
+      style="background-image: url(/images/getty.jpg)"
+      id="home"
+    >
+      <nav
+        class="flex items-center justify-between w-full px-5 py-3 absolute left-0 top-0"
+      >
+        <h2 class="text-3xl font-bold">
+          D<span class="text-red-500">eveloper</span>
+        </h2>
+        <div class="hidden md:flex items-center space-x-4">
+          <!-- Hide on mobile, show on medium screens and above -->
+          <a href="#home" class="hover:text-red-500 font-bold">Home</a>
+          <a href="#about" class="hover:text-red-500 font-bold">About</a>
+          <a href="#services" class="hover:text-red-500 font-bold">Skills</a>
+          <a href="#portfolio" class="hover:text-red-500 font-bold">Projects</a>
+          <a href="#contact" class="hover:text-red-500 font-bold">Contact</a>
+          <a
+            href="#"
+            class="text-white border border-red-500 rounded px-4 py-1 hover:bg-red-500 hover:text-gray-900"
+            >Contact Me</a
+          >
+        </div>
+        <!-- Mobile Menu Button (Hamburger Icon) -->
+        <div class="md:hidden">
+          <!-- Show on mobile, hide on medium screens and above -->
+          <button id="menu-toggle" class="text-white focus:outline-none">
+            <i class="fa fa-bars text-2xl"></i>
+          </button>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-gray-900 bg-opacity-75 flex flex-col items-center justify-center"
+        >
+          <a href="#home" class="text-white py-2 font-bold hover:text-red-500"
+            >Home</a
+          >
+          <a href="#about" class="text-white py-2 font-bold hover:text-red-500"
+            >About</a
+          >
+          <a
+            href="#services"
+            class="text-white py-2 font-bold hover:text-red-500"
+            >Services</a
+          >
+          <a
+            href="#portfolio"
+            class="text-white py-2 font-bold hover:text-red-500"
+            >Portfolio</a
+          >
+          <a
+            href="#contact"
+            class="text-white py-2 font-bold hover:text-red-500"
+            >Contact</a
+          >
+          <a
+            href="#"
+            class="text-white border border-red-500 rounded px-4 py-1 mt-4 hover:bg-red-500 hover:text-gray-900"
+            >Contact Me</a
+          >
+        </div>
+      </nav>
+
+      <div class="flex flex-col items-center justify-center space-y-4">
+        <div class="relative">
+          <img
+            src="../images/WhatsApp Image 2024-02-14 at 9.20.05 PM.jpeg"
+            alt="avatar"
+            class="w-40 h-40 rounded-full filter grayscale-30 hover:filter-none transition duration-500 ease-in-out"
+          />
+        </div>
+        <h1 class="text-4xl font-bold text-center">Ramona Ingabire</h1>
+        <p class="text-lg">A Frontend Developer</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-4 py-12">
+      <!-- About Section -->
+      <section id="about" class="py-12">
+        <article
+          class="mx-auto max-w-4xl text-center md:flex md:items-center md:justify-center md:text-left"
+        >
+          <img
+            src="../images/WhatsApp Image 2024-02-14 at 9.20.05 PM.jpeg"
+            alt="avatar"
+            class="w-48 h-48 object-cover mx-auto mb-8 md:mb-0 md:mr-8"
+          />
+          <div>
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="mb-8">
+              In high school, my involvement in the Tech and Robotics club
+              sparked my passion for technology, fueling a commitment to pursue
+              it in university. Currently enrolled in a frontend web development
+              bootcamp by She Can Code, I'm refining my coding skills and
+              building a foundation for creating user-friendly web applications.
+            </p>
+            <div
+              class="flex flex-wrap justify-center md:justify-start space-x-4">
+            
+              <div class="border border-red-500 rounded p-4 mb-4 md:w-1/2">
+                <ul class="list-none">
+                  <li><strong>Name:</strong> Ramona Ingabire</li>
+                  <li><strong>Phone:</strong> +250786793145</li>
+                </ul>
+
+                <!--<div class="border border-red-500 rounded p-4 mb-4 md:w-1/2">-->
+                <ul class="list-none">
+                  <li><strong>Address:</strong> Kigali, Rwanda</li>
+                  <li><strong>Email:</strong> ingabireeramona@gmail.com</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-12">
+        <article class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold mb-8">My Skills</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="border border-red-500 rounded p-6">
+              <h3 class="text-2xl font-bold mb-4">HTML</h3>
+              <p class="mb-4">
+                I have expertise in HTML, a markup language that is used in web development serving as the backbone 
+                for creating structure and content of webpages. It consists of a series of elements or tags that define
+                 the various parts of a webpage, such as headings, paragraphs, links, images, and more. HTML provides 
+                 the structure that determines how content is displayed in a web browser
+              </p>
+            </div>
+            <div class="border border-red-500 rounded p-6">
+              <h3 class="text-2xl font-bold mb-4">CSS/Tailwind</h3>
+              <p class="mb-4">
+                CSS (Cascading Style Sheets) is the cornerstone of web design, allowing developers to style HTML elements and create visually 
+                appealing websites. Tailwind CSS, a utility-first CSS framework, takes this a step further by providing pre-built utility classes 
+                that streamline the styling process. With Tailwind, developers can rapidly build responsive and customizable designs without 
+                the need for writing extensive custom CSS. 
+              </p>
+            </div>
+            <div class="border border-red-500 rounded p-6">
+              <h3 class="text-2xl font-bold mb-4">JavaScript</h3>
+              <p class="mb-4">
+                JavaScript is a programming language for web development, enabling dynamic interactions, form validation, DOM manipulation, 
+                and asynchronous operations. It powers responsive web applications and is essential for creating rich user experiences. 
+                With frameworks like React and Angular, JavaScript facilitates efficient development of complex single-page applications,
+                 making it a fundamental tool for building interactive web interfaces.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="py-12">
+        <article class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold mb-8">Projects</h2>
+          <p class="mb-8">
+            Below are some of the projects I have worked on using HTML, CSS, Tailwind, and JavaScript. 
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <a href="#" class="border border-red-500 rounded p-4">
+              <img src="#"></a>
+            <a href="#" class="border border-red-500 rounded p-4">
+              <img src="#"></a>
+              <a href="#" class="border border-red-500 rounded p-4">
+                <img src="#"></a>
+                <a href="#" class="border border-red-500 rounded p-4">
+                  <img src="#"></a>
+                  -->
+
+            <!-- Portfolio items go here -->
+          <!---</div>
+          <div class="flex justify-center mt-8">
+            <button
+              id="prev"
+              class="fa fa-angle-double-left text-4xl text-gray-500 hover:text-red-500"
+            ></button>
+            <button
+              id="next"
+              class="fa fa-angle-double-right text-4xl text-gray-500 hover:text-red-500"
+            ></button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-12 bg-gray-900">
+      <div class="flex justify-center mb-8">
+        <a
+          href="#"
+          class="fa fa-envelope text-4xl text-white mx-4 hover:text-red-500"
+        ></a>
+        <a
+          href="#"
+          class="fa fa-linkedin-square text-4xl text-white mx-4 hover:text-red-500"
+        ></a>
+        <a
+          href="#"
+          class="fa fa-github text-4xl text-white mx-4 hover:text-red-500"
+        ></a>
+        <a
+          href="#"
+          class="fa fa-instagram text-4xl text-white mx-4 hover:text-red-500"
+        ></a>
+      </div>
+      <p class="text-center text-lg text-gray-500">
+        © 2024 Your Company. All rights reserved.
+      </p>
+    </footer>
+  </body>
 </html>
