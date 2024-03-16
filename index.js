@@ -121,6 +121,16 @@ async function openPopup(element) {
         // new Technologies(technologies); // Commented out for simplicity, assuming this is defined elsewhere
     }
 }
+// JavaScript to toggle mobile menu
+document.getElementById("menu-toggle").addEventListener("click", function() {
+    var mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+    } else {
+        mobileMenu.classList.add("hidden");
+    }
+});
+
 
 function getConditional(element) {
     const main = document.querySelector('main');
