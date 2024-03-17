@@ -1,7 +1,6 @@
-// Function to type out the name gradually
 const myName = 'Ramona';
 const tagOfMyName = document.querySelector('h1');
-tagOfMyName.innerHTML = ''; // Clear any existing content
+tagOfMyName.innerHTML = '';
 const arrOfMyName = myName.split('');
 let index = 0;
 
@@ -11,40 +10,51 @@ const simulateTyping = () => {
         index++;
         setTimeout(simulateTyping, 200);
     } else {
-        setTimeout(simulateTypingBackspace, 4000); // Call backspace simulation after typing
+        --index;
+        setTimeout(simulateTypingBackspace, 4000);
     }
 };
 
 const simulateTypingBackspace = () => {
-    if (index >= 0) {
-        arrOfMyName.pop(); // Remove one character
+    if (index < 0) {
+        arrOfMyName.push(...myName.split(''));
+        index = 0;
+        simulateTyping();
+        return;
+    }
+    if (index <= myName.length) {
+        arrOfMyName.pop();
         tagOfMyName.innerHTML = arrOfMyName.join('');
         index--;
         setTimeout(simulateTypingBackspace, 100);
-    } else {
-        index = 0; // Reset index
-        simulateTyping(); // Restart typing
     }
 };
 
-simulateTyping(); // Start the typing animation
+simulateTyping();
 
-// Function to handle fade-in animations on scroll
+// FADE IN ANIMATION ON SCROLL
 const reveal = document.querySelectorAll('.animate-fadeInUp');
 const callback = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-fadeInUp');
+            if (entry.target.matches('.projects')) {
+                if (!document.querySelector('.projects')) {
+                    // new Projects(URL).displayProjects(); // Commented out for simplicity, assuming this is defined elsewhere
+                }
+            }
         } else {
             entry.target.classList.remove('animate-fadeInUp');
         }
     });
 };
 const io = new IntersectionObserver(callback);
-reveal.forEach(view => io.observe(view)); // Observe each element with the class 'animate-fadeInUp'
+for (let view of reveal) {
+    io.observe(view);
+}
 
-// Function to create social media anchor elements
 const social = document.querySelector('footer .social');
+
 social.appendChild(createSocialAnchors('mailto:j.valerio.figueira@gmail.com', 'fa fa-envelope'));
 social.appendChild(createSocialAnchors('https://www.linkedin.com/in/valerio-figueira/', 'fa fa-linkedin-square'));
 social.appendChild(createSocialAnchors('https://github.com/valerio-figueira', 'fa fa-github'));
@@ -59,16 +69,20 @@ function createSocialAnchors(url, iconClass) {
     return anchor;
 }
 
-// Function to handle toggling of mobile menu
-const mobileMenuToggle = document.getElementById("menu-toggle");
-mobileMenuToggle.addEventListener("click", () => {
-    const mobileMenu = document.getElementById("mobile-menu");
-    mobileMenu.classList.toggle("hidden");
+const copyright = document.querySelector('.copyright');
+const year = new Date().getFullYear();
+copyright.innerHTML = `Copyright - \u00A9 ${year}`;
+
+// NAVBAR
+const navbar = document.querySelector('.mobile-menu');
+const closeNav = document.querySelector('#menu-toggle');
+document.querySelector('#menu-toggle').addEventListener('click', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
 });
 
-// Function to scroll to the top when the "Up" button in the footer is clicked
 document.querySelector('footer .up-btn').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.open('#home', '_self');
 });
 
 /* ABILITIES LINK & POPUP*/
@@ -82,23 +96,29 @@ document.querySelector('.close-popup').addEventListener('click', (e) => {
     getConditional(e.target.parentNode);
 });
 
-// Function to close popup when the escape key is pressed
+// IF ESC IS PRESSED SO CLOSE POPUP
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+    if (e.key.match('Escape')) {
         getConditional(document.querySelector('.popup'));
     }
 });
 
-// Function to open popup
 async function openPopup(element) {
     const popup = document.querySelector('.popup');
+
     getConditional(popup);
 
+    // async function and search conditionals
+    const technologies = await fetchTechnologies(`https://portfolium-api.netlify.app/technologies/tag/${element.id}`);
+
+    if (technologies != undefined) {
+        // new Technologies(technologies); // Commented out for simplicity, assuming this is defined elsewhere
+    }
 }
 
-// Function to handle conditional behavior of elements
 function getConditional(element) {
     const main = document.querySelector('main');
+
     if (element.matches('.open')) {
         element.classList.remove('open');
         document.body.style.overflow = 'scroll';
@@ -113,24 +133,19 @@ function getConditional(element) {
     }
 }
 
-// Function to fetch technologies from API
 async function fetchTechnologies(URL) {
     const spinner = document.querySelector('#popup-spinner');
     spinner.style.display = 'block';
 
-    try {
-        const response = await fetch(URL);
-        const data = await response.json();
-        spinner.style.display = 'none';
-        return data;
-    } catch (error) {
-        console.error('Error fetching technologies:', error);
-        spinner.style.display = 'none';
-        return undefined;
-    }
+    return fetch(URL)
+        .then(response => {
+            return Promise.resolve(response);
+        })
+        .then(data => {
+            return data.json();
+        })
+        .then(technologies => {
+            spinner.style.display = 'none';
+            return technologies;
+        });
 }
-
-// Update copyright year dynamically
-const copyright = document.querySelector('.copyright');
-const year = new Date().getFullYear();
-copyright.textContent = `Copyright - \u00A9 ${year}`;
