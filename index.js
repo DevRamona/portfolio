@@ -77,14 +77,8 @@ copyright.innerHTML = `Copyright - \u00A9 ${year}`;
 const navbar = document.querySelector('.mobile-menu');
 const closeNav = document.querySelector('#menu-toggle');
 document.querySelector('#menu-toggle').addEventListener('click', () => {
-    if (!navbar.matches('.hidden')) {
-        navbar.classList.add('hidden');
-        closeNav.addEventListener('click', () => {
-            navbar.classList.remove('hidden');
-        });
-    } else {
-        navbar.classList.remove('hidden');
-    }
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
 });
 
 document.querySelector('footer .up-btn').addEventListener('click', () => {
@@ -121,16 +115,6 @@ async function openPopup(element) {
         // new Technologies(technologies); // Commented out for simplicity, assuming this is defined elsewhere
     }
 }
-// JavaScript to toggle mobile menu
-document.getElementById("menu-toggle").addEventListener("click", function() {
-    var mobileMenu = document.getElementById("mobile-menu");
-    if (mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.remove("hidden");
-    } else {
-        mobileMenu.classList.add("hidden");
-    }
-});
-
 
 function getConditional(element) {
     const main = document.querySelector('main');
