@@ -8,6 +8,7 @@ function hideMenuButton() {
     document.getElementById('menuButtonContainer').classList.add('hidden');
 }
 
+
 const simulateTyping = () => {
     if (index < myName.length) {
         tagOfMyName.innerHTML += arrOfMyName[index];
@@ -25,6 +26,8 @@ const menu = document.querySelector("#mobile-menu");
 bar.addEventListener("click", () => {
     menu.classList.toggle("hidden");
 });
+
+
 
 const simulateTypingBackspace = () => {
     if (index < 0) {
