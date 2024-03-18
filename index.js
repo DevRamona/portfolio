@@ -16,7 +16,7 @@ const simulateTyping = () => {
 };
 
 const bar = document.querySelector(".fa-bars");
-const menu = document.getElementById("mobile-menu");
+const menu = document.querySelector("#mobile-menu");
 
 bar.addEventListener("click", () => {
     menu.classList.toggle("hidden");
