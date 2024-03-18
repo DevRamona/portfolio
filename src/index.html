@@ -29,13 +29,13 @@
 </head>
 <body class="font-sans bg-gray-900 text-white">
     <!-- Header -->
-    <header class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url(./images/getty.jpg)" id="home">
+    <header class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center px-4" style="background-image: url(./images/getty.jpg)" id="home">
         <!-- Navigation -->
-        <nav class="flex items-center justify-between w-full px-5 py-3 absolute left-0 top-0">
-            <h2 class="text-3xl font-bold">
+        <nav class="fixed flex items-center justify-between w-full px-5 py-3 absolute left-0 top-0">
+            <h2 class="text-3xl font-bold hidden md:block">
                 D<span class="text-red-500">eveloper</span>
             </h2>
-            <div class="hidden md:flex items-center space-x-4">
+            <div class="hidden  md:flex items-center space-x-4">
                 <a href="#home" class="hover:text-red-500 font-bold">Home</a>
                 <a href="#about" class="hover:text-red-500 font-bold">About</a>
                 <a href="#services" class="hover:text-red-500 font-bold">Skills</a>
@@ -43,11 +43,12 @@
                 <a href="#contact" class="text-white border border-red-500 rounded px-4 py-1 hover:bg-red-500 hover:text-gray-900">Contact Me</a>
             </div>
             <!-- Mobile Menu Button (Hamburger Icon) -->
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
+            <div class="md:hidden" id="menuButtonContainer">
+                <button id="menu-toggle" class="text-white focus:outline-none" onclick="hideMenuButton()">
                     <i class="fa fa-bars text-2xl"></i>
                 </button>
             </div>
+            
             <!-- Mobile Menu (Hidden by default) -->
             <div id="mobile-menu" class="hidden md:absolute top-0 left-0 w-full h-screen bg-gray-900 bg-opacity-75 flex flex-col items-center justify-center">
                 <a href="#home" class="text-white py-2 font-bold hover:text-red-500">Home</a>
@@ -58,7 +59,7 @@
             </div>
         </nav>
         <!-- Hero Content -->
-        <div class="flex flex-col items-center justify-center space-y-4 px-4">
+        <div class="hidden md:flex flex-col items-center justify-center space-y-4 px-4">
             <div class="relative">
                 <img src="./images/WhatsApp Image 2024-02-14 at 9.20.05 PM.jpeg" alt="avatar" class="w-40 h-40 rounded-full filter grayscale-30 hover:filter-none transition duration-500 ease-in-out" />
             </div>
@@ -203,3 +204,4 @@
     <script src="./index.js"></script>
 </body>
 </html>
+

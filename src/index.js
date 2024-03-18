@@ -3,6 +3,10 @@ const tagOfMyName = document.querySelector('h1');
 tagOfMyName.innerHTML = '';
 const arrOfMyName = myName.split('');
 let index = 0;
+function hideMenuButton() {
+    // Hide the menu button container
+    document.getElementById('menuButtonContainer').classList.add('hidden');
+}
 
 const simulateTyping = () => {
     if (index < myName.length) {
@@ -62,11 +66,10 @@ for (let view of reveal) {
 
 const social = document.querySelector('footer .social');
 
-social.appendChild(createSocialAnchors('mailto:j.valerio.figueira@gmail.com', 'fa fa-envelope'));
-social.appendChild(createSocialAnchors('https://www.linkedin.com/in/valerio-figueira/', 'fa fa-linkedin-square'));
-social.appendChild(createSocialAnchors('https://github.com/valerio-figueira', 'fa fa-github'));
-social.appendChild(createSocialAnchors('https://www.instagram.com/valerio.figueira/', 'fa fa-instagram'));
-social.appendChild(createSocialAnchors('https://www.facebook.com/jvaleriofigueira/', 'fa fa-facebook-official'));
+social.appendChild(createSocialAnchors('mailto:ingabireeramona@gmail.com', 'fa fa-envelope'));
+social.appendChild(createSocialAnchors('https://www.linkedin.com/in/ramona-ingabire-055757193/', 'fa fa-linkedin-square'));
+social.appendChild(createSocialAnchors('https://github.com/DevRamona', 'fa fa-github'));
+social.appendChild(createSocialAnchors('https://www.instagram.com/djasou_shop/', 'fa fa-instagram'));
 
 function createSocialAnchors(url, iconClass) {
     const anchor = document.createElement('a');
