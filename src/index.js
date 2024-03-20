@@ -3,10 +3,9 @@ const tagOfMyName = document.querySelector('h1');
 tagOfMyName.innerHTML = '';
 const arrOfMyName = myName.split('');
 let index = 0;
-function hideMenuButton() {
-    // Hide the menu button container
-    document.getElementById('menuButtonContainer').classList.add('hidden');
-}
+
+
+
 
 
 const simulateTyping = () => {
@@ -23,9 +22,13 @@ const simulateTyping = () => {
 const bar = document.querySelector(".fa-bars");
 const menu = document.querySelector("#mobile-menu");
 
-bar.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-});
+if (bar && menu) {
+    bar.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        // Show the closing button after displaying the navigation menu
+        document.querySelector('.close-btn').classList.toggle('hidden');
+    });
+}
 
 
 
@@ -90,11 +93,9 @@ copyright.innerHTML = `Copyright - \u00A9 ${year}`;
 const navbar = document.querySelector('.mobile-menu');
 const closeNav = document.querySelector('#menu-toggle');
 document.querySelector('#menu-toggle').addEventListener('click', () => {
-    if (!navbar.classList.contains('hidden')) {
-        navbar.classList.add('hidden');
-    } else {
-        navbar.classList.remove('hidden');
-    }
+    navbar.classList.toggle('hidden');
+    // Toggle the visibility of the closing button
+    document.querySelector('.close-btn').classList.toggle('hidden');
 });
 
 document.querySelector('footer .up-btn').addEventListener('click', () => {
