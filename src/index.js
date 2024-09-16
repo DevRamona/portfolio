@@ -75,7 +75,7 @@ const social = document.querySelector('footer .social');
 social.appendChild(createSocialAnchors('mailto:ingabireeramona@gmail.com', 'fa fa-envelope'));
 social.appendChild(createSocialAnchors('https://www.linkedin.com/in/ramona-ingabire-055757193/', 'fa fa-linkedin-square'));
 social.appendChild(createSocialAnchors('https://github.com/DevRamona', 'fa fa-github'));
-social.appendChild(createSocialAnchors('https://www.instagram.com/djasou_shop/', 'fa fa-instagram'));
+social.appendChild(createSocialAnchors('/', 'fa fa-instagram'));
 
 function createSocialAnchors(url, iconClass) {
     const anchor = document.createElement('a');
