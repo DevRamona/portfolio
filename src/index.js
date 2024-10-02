@@ -25,7 +25,7 @@ const menu = document.querySelector("#mobile-menu");
 if (bar && menu) {
     bar.addEventListener("click", () => {
         menu.classList.toggle("hidden");
-        // Show the closing button after displaying the navigation menu
+
         document.querySelector('.close-btn').classList.toggle('hidden');
     });
 }
